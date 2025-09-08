@@ -6,6 +6,18 @@ vars:
   GREETING: Hello, World!
 
 tasks:
+  preset:
+    cmds:
+      - curl --proto '=https' --tlsv1.2 -sSfL https://solana-install.solana.workers.dev | bash
+      - solana config get
+      - solana-keygen new
+      - solana address
+
+      #anchor init
+  new_libcards:
+    dir: ./tools
+    cmds:
+      - anchor init libcard-app
   default:
     cmds:
       - echo "{{.GREETING}}"
